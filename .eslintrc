@@ -6,5 +6,11 @@
      "import/prefer-default-export": "off",
      "react/jsx-filename-extension": [1, { "extensions": ['.js', '.jsx', '.ts', '.tsx'] }],
      "react/no-unused-prop-types": 1,
-     "@typescript-eslint/no-unused-vars": 1
+     "react/destructuring-assignment": 0,
+     "react/jsx-one-expression-per-line": 0,
+     "@typescript-eslint/no-unused-vars": 1,
+     "react/jsx-props-no-spreading": 0,
+     "max-len": 0,
+     "react/button-has-type": 0,
+     "no-prototype-builtins": 0
 }

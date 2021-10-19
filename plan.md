@@ -7,3 +7,4 @@
 - actors/films: TBC opening crawl
 - properties (e.g. homeworld) come as links; api call in component? translate in initial api call (planet name & id)?
 - api - DRY vs single use principle (multiple search fields)
+- no results: these are not the droids you're looking for

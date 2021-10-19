@@ -1,0 +1,37 @@
+.avatar {
+  &__face {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    border-radius: 50%;
+  }
+  &__eye {
+    position: relative;
+    width: 10%;
+    border-radius: 50%;
+    top: 20%;
+    &--left {
+      left: 40%;
+    }
+    &--right {
+      left: 60%;
+    }
+  }
+  &__hair {
+    position: relative;
+  }
+  &__torso {
+    position: relative;
+    top: 65%;
+    left: 15%;
+    height: 35%;
+    width: 70%;
+
+    &--male {
+      background-color: green;
+    }
+    &--female {
+      background-color: orange;
+    }
+  }
+}

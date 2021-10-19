@@ -2,71 +2,54 @@ const axios = require('axios');
 
 const baseUrl = 'https://swapi.dev/api/';
 
-enum Categories {
+export enum Categories {
   Films = 'films',
-  People = 'people,',
+  People = 'people',
   Planets = 'planets',
   Species = 'species',
   Starships = 'starships',
   Vehicles = 'vehicles',
 }
 
-export const getFilms = (id: number): any => {
-  let url = `${baseUrl}${Categories.Films}/`;
+export const getData = async (category: Categories, query: string = ''): Promise<any> => {
+  const url = `${baseUrl}${category}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
-
-  return axios.get(url);
+  const result = await axios.get(url, { search: query });
+  return result.data;
 };
 
-export const getPeople = (id: number): any => {
-  let url = `${baseUrl}${Categories.People}/`;
+export const getFilms = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.Films}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
-
-  return axios.get(url);
+  return axios.get(url, { search: query });
 };
 
-export const getPlanets = (id: number): any => {
-  let url = `${baseUrl}${Categories.Planets}/`;
+export const getPeople = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.People}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
-
-  return axios.get(url);
+  return axios.get(url, { search: query });
 };
 
-export const getSpecies = (id: number): any => {
-  let url = `${baseUrl}${Categories.Species}/`;
+export const getPlanets = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.Planets}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
-
-  return axios.get(url);
+  return axios.get(url, { search: query });
 };
 
-export const getStarships = (id: number): any => {
-  let url = `${baseUrl}${Categories.Starships}/`;
+export const getSpecies = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.Species}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
-
-  return axios.get(url);
+  return axios.get(url, { search: query });
 };
 
-export const getVehicles = (id: number): any => {
-  let url = `${baseUrl}${Categories.Vehicles}/`;
+export const getStarships = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.Starships}/`;
 
-  if (id) {
-    url += `${id}/`;
-  }
+  return axios.get(url, { search: query });
+};
 
-  return axios.get(url);
+export const getVehicles = (query: string): Promise<any> => {
+  const url = `${baseUrl}${Categories.Vehicles}/`;
+
+  return axios.get(url, { search: query });
 };

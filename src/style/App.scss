@@ -1,0 +1,21 @@
+@import './reset.scss';
+
+.App {
+  position: absolute;
+  text-align: center;
+  background-image: url("../assets/spaceGif.gif");
+  height: 100%;
+  width: 100%;
+
+  .main-container {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    border: solid 5px yellow;
+    border-radius: 50px;
+    padding: 10px;
+  }
+}
+

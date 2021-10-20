@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import './App.css';
+import './style/App.scss';
 
 import {
   Categories, getData,
@@ -39,12 +37,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <div className="main-container">
         <SearchBar category={searchCategory} value={searchQuery} setValue={setSearchQuery} onSubmit={() => handleSubmit(searchCategory, searchQuery)} />
         <button onSubmit={() => handleSubmit(searchCategory, searchQuery)}>BUTTON</button>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

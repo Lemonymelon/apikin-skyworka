@@ -7,6 +7,7 @@ import FilmCard, { IFilmProps } from './components/FilmCard';
 import {
   Categories, getCategoryData, getDataViaUrl,
 } from './api';
+import { tidyCharacterProps } from './utils';
 
 enum Direction {
   Prev = 'prev',
@@ -19,42 +20,6 @@ function App() {
   const [searchResults, setSearchResults] = useState<ICharacterProps[] | IFilmProps[] >([]);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const [previousPage, setPreviousPage] = useState<string | null>(null);
-
-  function tidyCharacterProps(characters: ICharacterProps[]) {
-    return characters.map((character) => {
-      const letterRegex = /^([a-z]+)[^a-z]+.*$/i;
-
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      let { eye_color, hair_color, skin_color } = character;
-
-      if (letterRegex.test(eye_color) && eye_color !== 'n/a') {
-        // eslint-disable-next-line prefer-destructuring
-        eye_color = eye_color.match(letterRegex)![1];
-      }
-
-      if (letterRegex.test(hair_color) && hair_color !== 'n/a') {
-        // eslint-disable-next-line prefer-destructuring
-        hair_color = hair_color.match(letterRegex)![1];
-      }
-      if (letterRegex.test(skin_color) && skin_color !== 'n/a') {
-        // eslint-disable-next-line prefer-destructuring
-        skin_color = skin_color.match(letterRegex)![1];
-      }
-
-      if (hair_color === 'blond') {
-        hair_color = 'yellow';
-      }
-
-      if (skin_color === 'fair' || skin_color === 'light') {
-        skin_color = 'lightgrey';
-      }
-
-      console.log(eye_color, hair_color, skin_color);
-      return {
-        ...character, eye_color, hair_color, skin_color,
-      };
-    });
-  }
 
   function handleResults(resultsObject: any, category: Categories) {
     if (resultsObject.hasOwnProperty('detail')) {
@@ -115,6 +80,7 @@ function App() {
 
   return (
     <div className="App">
+      <img className="star-wars-logo" src="https://www.freepnglogos.com/uploads/star-wars-logo-0.png" alt="star wars logo" />
       <div className="main-container">
         <div className="nav">
           <div className="searchbar-and-page-buttons">

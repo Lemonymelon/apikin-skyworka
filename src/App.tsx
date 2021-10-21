@@ -19,8 +19,34 @@ function App() {
   const [searchResults, setSearchResults] = useState<ICharacterProps[] | IFilmProps[] >([]);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const [previousPage, setPreviousPage] = useState<string | null>(null);
-  console.log(nextPage);
-  console.log(previousPage);
+
+  function tidyCharacterProps(characters: ICharacterProps[]) {
+    return characters.map((character) => {
+      const letterRegex = /^([a-z]+)[^a-z]+.*$/i;
+
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      let { eye_color, hair_color, skin_color } = character;
+
+      if (letterRegex.test(eye_color) && eye_color !== 'n/a') {
+        // eslint-disable-next-line prefer-destructuring
+        eye_color = eye_color.match(letterRegex)![1];
+      }
+
+      if (letterRegex.test(hair_color) && hair_color !== 'n/a') {
+        // eslint-disable-next-line prefer-destructuring
+        hair_color = hair_color.match(letterRegex)![1];
+      }
+      if (letterRegex.test(skin_color) && skin_color !== 'n/a') {
+        // eslint-disable-next-line prefer-destructuring
+        skin_color = skin_color.match(letterRegex)![1];
+      }
+
+      console.log(eye_color, hair_color, skin_color);
+      return {
+        ...character, eye_color, hair_color, skin_color,
+      };
+    });
+  }
 
   function handleResults(resultsObject: any, category: Categories) {
     if (resultsObject.hasOwnProperty('detail')) {
@@ -34,9 +60,11 @@ function App() {
       return typedResult;
     });
 
+    const tidiedResults = tidyCharacterProps(typedResults);
+
     setNextPage(next);
     setPreviousPage(previous);
-    setSearchResults(typedResults);
+    setSearchResults(tidiedResults);
   }
 
   async function handleSubmit(category: Categories, query: string) {

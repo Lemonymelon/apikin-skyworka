@@ -21,6 +21,5 @@ export const getCategoryData = async (category: Categories, query: string = ''):
 
 export const getDataViaUrl = async (url: string) => {
   const result = await axios.get(url);
-  console.log('API: ', result);
   return result.data;
 };

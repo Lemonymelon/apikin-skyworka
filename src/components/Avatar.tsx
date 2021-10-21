@@ -9,12 +9,11 @@ export interface IAvatarProps {
 }
 
 const Avatar = (props: IAvatarProps) => (
-  <div className="character-card__avatar avatar">
+  <div className={`avatar avatar--${props.gender}`}>
     <div className="avatar__face" style={{ backgroundColor: props.skin_color }} />
-    <div className="avatar__eye--left" style={{ backgroundColor: props.eye_color }} />
-    <div className="avatar__eye--right" style={{ backgroundColor: props.eye_color }} />
+    <div className="avatar__eye avatar__eye--left" style={{ backgroundColor: props.eye_color }} />
+    <div className="avatar__eye avatar__eye--right" style={{ backgroundColor: props.eye_color }} />
     <div className="avatar__hair" style={{ backgroundColor: props.hair_color }} />
-    <div className={`avatar__torso--${props.gender}`} />
   </div>
 );
 

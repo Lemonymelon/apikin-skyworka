@@ -12,7 +12,6 @@ export interface ICardProps {
 const CardGrid = (props: ICardProps) => (
   <div className="card-grid">
     {props.cardArray.map((card, index) => {
-      // console.log(card);
       switch (card.category) {
         case Categories.People:
           return <CharacterCard {...card as unknown as ICharacterProps} key={index} />;

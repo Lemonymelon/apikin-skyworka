@@ -2,9 +2,12 @@
   overflow: scroll;
   overscroll-behavior-y: contain;
   height: 100%;
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   > .character-card {
-    margin: 10px 0px;
+    margin: 10px auto;
     &:first-child {
       margin-top: 20px;
     }

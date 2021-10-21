@@ -41,6 +41,14 @@ function App() {
         skin_color = skin_color.match(letterRegex)![1];
       }
 
+      if (hair_color === 'blond') {
+        hair_color = 'yellow';
+      }
+
+      if (skin_color === 'fair' || skin_color === 'light') {
+        skin_color = 'lightgrey';
+      }
+
       console.log(eye_color, hair_color, skin_color);
       return {
         ...character, eye_color, hair_color, skin_color,

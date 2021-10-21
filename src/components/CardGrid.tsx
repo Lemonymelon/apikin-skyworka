@@ -1,23 +1,24 @@
 import React from 'react';
 import CharacterCard, { ICharacterProps } from './CharacterCard';
 import FilmCard, { IFilmProps } from './FilmCard';
+import { Categories } from '../api';
 
-type CardProps = ICharacterProps[] | IFilmProps[];
+export type CardArray = ICharacterProps[] | IFilmProps[];
 
-export enum Types {
-  Character = 'character',
-  Film = 'film',
+export interface ICardProps {
+  cardArray: CardArray;
 }
 
-const CardGrid = (cardProps: CardProps) => (
-  <div>
-    {cardProps.map((card) => {
-      switch (card.type) {
-        case Types.Character:
-          return <CharacterCard {...cardProps as unknown as ICharacterProps} />;
+const CardGrid = (props: ICardProps) => (
+  <div className="card-grid">
+    {props.cardArray.map((card, index) => {
+      // console.log(card);
+      switch (card.category) {
+        case Categories.People:
+          return <CharacterCard {...card as unknown as ICharacterProps} key={index} />;
           break;
-        case Types.Film:
-          return <FilmCard {...cardProps as unknown as IFilmProps} />;
+        case Categories.Films:
+          return <FilmCard {...card as unknown as IFilmProps} key={index} />;
           break;
         default:
           return null;

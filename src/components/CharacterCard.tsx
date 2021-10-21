@@ -1,18 +1,18 @@
 import React from 'react';
 import Avatar from './Avatar';
-import { Types } from './CardGrid';
+import { Categories } from '../api';
 
 export interface ICharacterProps {
-  type: Types.Character;
-  eyeColour: string;
+  category: Categories.People;
+  eye_color: string;
   films: string[];
   gender: string;
-  hairColour: string;
+  hair_color: string;
   height: number;
   homeworld: string;
   mass: number;
   name: string;
-  skinColour: string;
+  skin_color: string;
   species: string[];
   starships: string[];
   vehicles: string[];
@@ -21,18 +21,18 @@ export interface ICharacterProps {
 const CharacterCard = (
   props: ICharacterProps,
 ) => (
-  <div>
+  <div className="character-card">
+    <div className="character-card__name">{props.name}</div>
+    <div className="character-card__mass">{props.mass}kg</div>
     <Avatar
-      eyeColour={props.eyeColour}
+      eye_color={props.eye_color}
       gender={props.gender}
-      hairColour={props.hairColour}
-      skinColour={props.skinColour}
+      hair_color={props.hair_color}
+      skin_color={props.skin_color}
     />
+    <div className="character-card__height">{props.height}cm</div>
     <div className="character__personalInfo" />
-    {props.name}
-    Height:{props.height}
-    Species: {props.species}
-    Homeworld: {props.homeworld}
+
     {/* lists */}
   </div>
 );

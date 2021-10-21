@@ -10,7 +10,7 @@ interface ISearchBarProps {
 }
 
 const SearchBar = (props: ISearchBarProps) => (
-  <div>
+  <div className="search-bar">
     <input
       type="text"
       placeholder={`Search ${props.category}...`}

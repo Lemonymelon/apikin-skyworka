@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from './Avatar';
 import { Categories } from '../api';
 
 export interface IFilmProps {

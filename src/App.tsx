@@ -1,9 +1,9 @@
 import './style/App.scss';
 import React, { ChangeEvent, useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
-import CardGrid, { ICardProps } from './components/CardGrid';
-import CharacterCard, { ICharacterProps } from './components/CharacterCard';
-import FilmCard, { IFilmProps } from './components/FilmCard';
+import CardGrid from './components/CardGrid';
+import { ICharacterProps } from './components/CharacterCard';
+import { IFilmProps } from './components/FilmCard';
 import {
   Categories, getCategoryData, getDataViaUrl,
 } from './api';

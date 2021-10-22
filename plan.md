@@ -1,0 +1,10 @@
+- background - hyperjump slow eternal gif
+- container - yellow border, round edges, very dark blue interior
+- avatar component: hair (same as skin if N/A), face, eyes, smile (fixed)
+- hide/show characteristics
+- search bar (person name)
+- react router - characters, actors
+- actors/films: TBC opening crawl
+- properties (e.g. homeworld) come as links; api call in component? translate in initial api call (planet name & id)?
+- api - DRY vs single use principle (multiple search fields)
+- no results: these are not the droids you're looking for

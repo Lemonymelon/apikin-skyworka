@@ -1,0 +1,15 @@
+.character-card {
+  display: flex;
+  height: 50px;
+  border: solid 1px white;
+  border-radius: 10px;
+  width: 70%;
+  height: 100px;
+
+  &__personal-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,78 @@
+@import './reset.scss';
+@import "Avatar";
+@import "CardGrid";
+@import "CharacterCard";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+$star-wars-yellow: #fbe822;
+
+
+* {
+  font-family: 'Space Mono', monospace;
+
+}
+
+.App {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+
+  scrollbar-width: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  background-image: url("../assets/spaceGif.gif");
+  height: 100%;
+  width: 100%;
+
+  .star-wars-logo {
+    height: 20%;
+  }
+
+  .main-container {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    border: solid 5px $star-wars-yellow;
+    border-radius: 50px;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .searchbar-and-page-buttons {
+      display: flex;
+      flex-direction: row;
+    }
+
+    button {
+      margin: 0 5px;
+    }
+  }
+
+  .search-bar {
+  input {
+    background: transparent;
+    border: solid 1px $star-wars-yellow;
+    border-radius: 5px;
+    padding: 5px;
+    color: $star-wars-yellow;
+    color: $star-wars-yellow;
+
+    &:focus {
+      outline-width: 0;
+      }
+    }
+  }
+}
+

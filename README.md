@@ -1,6 +1,6 @@
 # Star Wars - API Tech Test
 
-## Brief:
+## Brief
 “We would like you to build a React project that connects to the StarWars API:
 https://swapi.dev/
 

@@ -14,5 +14,10 @@ Enzyme.configure({ adapter: new ReactSixteenAdapter() });
 const { shallow, mount } = Enzyme;
 
 describe('App', () => {
-  it('renders all base components when initially mounted', () => {});
+  describe('initially rendered components', () => {
+    it('renders a div', () => {
+      const wrapper = shallow(<App />);
+      expect(wrapper.hasClass('App')).toBe(true);
+    });
+  });
 });

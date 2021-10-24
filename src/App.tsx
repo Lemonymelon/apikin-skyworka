@@ -4,9 +4,11 @@ import SearchBar from './components/SearchBar';
 import CardGrid from './components/CardGrid';
 import { ICharacterProps } from './components/CharacterCard';
 import { IFilmProps } from './components/FilmCard';
+import RadioButtonGroup from './components/RadioButtonGroup';
 import {
   Categories, getCategoryData, getDataViaUrl,
 } from './api';
+import NavButton from './components/NavButton';
 import { tidyCharacterProps } from './utils';
 
 enum Direction {
@@ -84,52 +86,43 @@ function App() {
       <div className="main-container">
         <div className="nav">
           <div className="searchbar-and-page-buttons">
-            <button
+            <NavButton
+              text="PREV"
               onClick={() => {
                 if (previousPage) {
                   handlePageButton(Direction.Prev);
                 }
               }}
-              disabled={!previousPage}
-            >PREV
-            </button>
+            />
             <SearchBar category={searchCategory} value={searchQuery} setValue={setSearchQuery} onSubmit={() => handleSubmit(searchCategory, searchQuery)} />
-            <button
+            <NavButton
+              text="NEXT"
               onClick={() => {
                 if (nextPage) {
                   handlePageButton(Direction.Next);
                 }
               }}
-              disabled={!nextPage}
-            >NEXT
-            </button>
+            />
           </div>
-          <div className="category-radios">
-            {/* componetise */}
-            <label htmlFor="radio">
-              <input
-                id="people-radio"
-                name="category-radios"
-                type="radio"
-                value={Categories.People}
-                checked={searchCategory === Categories.People}
-                onChange={(event) => { handleRadioChange(event); }}
-              />
-              {Categories.People}
-            </label>
-            <label htmlFor="radio">
-              <input
-                id="films-radio"
-                name="category-radios"
-                type="radio"
-                value={Categories.Films}
-                checked={searchCategory === Categories.Films}
-                onChange={(event) => { handleRadioChange(event); }}
-              />
-              {Categories.Films}
-            </label>
-          </div>
-
+          <RadioButtonGroup
+            className="category-radios"
+            buttons={[
+              {
+                id: 'people-radio',
+                name: 'category-radios',
+                value: Categories.People,
+                checked: searchCategory === Categories.People,
+                onChange: (event) => handleRadioChange(event),
+              },
+              {
+                id: 'films-radio',
+                name: 'category-radios',
+                value: Categories.Films,
+                checked: searchCategory === Categories.Films,
+                onChange: (event) => handleRadioChange(event),
+              },
+            ]}
+          />
         </div>
         {searchResults.length > 0 && <CardGrid cardArray={searchResults} />}
       </div>

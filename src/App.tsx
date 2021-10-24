@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar';
 import CardGrid from './components/CardGrid';
 import { ICharacterProps } from './components/CharacterCard';
 import { IFilmProps } from './components/FilmCard';
+import RadioButtonGroup from './components/RadioButtonGroup';
 import {
   Categories, getCategoryData, getDataViaUrl,
 } from './api';
@@ -104,32 +105,25 @@ function App() {
             >NEXT
             </button>
           </div>
-          <div className="category-radios">
-            {/* componetise */}
-            <label htmlFor="radio">
-              <input
-                id="people-radio"
-                name="category-radios"
-                type="radio"
-                value={Categories.People}
-                checked={searchCategory === Categories.People}
-                onChange={(event) => { handleRadioChange(event); }}
-              />
-              {Categories.People}
-            </label>
-            <label htmlFor="radio">
-              <input
-                id="films-radio"
-                name="category-radios"
-                type="radio"
-                value={Categories.Films}
-                checked={searchCategory === Categories.Films}
-                onChange={(event) => { handleRadioChange(event); }}
-              />
-              {Categories.Films}
-            </label>
-          </div>
-
+          <RadioButtonGroup
+            className="category-radios"
+            buttons={[
+              {
+                id: 'people-radio',
+                name: 'category-radios',
+                value: Categories.People,
+                checked: searchCategory === Categories.People,
+                onChange: (event) => handleRadioChange(event),
+              },
+              {
+                id: 'films-radio',
+                name: 'category-radios',
+                value: Categories.Films,
+                checked: searchCategory === Categories.Films,
+                onChange: (event) => handleRadioChange(event),
+              },
+            ]}
+          />
         </div>
         {searchResults.length > 0 && <CardGrid cardArray={searchResults} />}
       </div>

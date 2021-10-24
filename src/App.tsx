@@ -8,6 +8,7 @@ import RadioButtonGroup from './components/RadioButtonGroup';
 import {
   Categories, getCategoryData, getDataViaUrl,
 } from './api';
+import NavButton from './components/NavButton';
 import { tidyCharacterProps } from './utils';
 
 enum Direction {
@@ -85,25 +86,23 @@ function App() {
       <div className="main-container">
         <div className="nav">
           <div className="searchbar-and-page-buttons">
-            <button
+            <NavButton
+              text="PREV"
               onClick={() => {
                 if (previousPage) {
                   handlePageButton(Direction.Prev);
                 }
               }}
-              disabled={!previousPage}
-            >PREV
-            </button>
+            />
             <SearchBar category={searchCategory} value={searchQuery} setValue={setSearchQuery} onSubmit={() => handleSubmit(searchCategory, searchQuery)} />
-            <button
+            <NavButton
+              text="NEXT"
               onClick={() => {
                 if (nextPage) {
                   handlePageButton(Direction.Next);
                 }
               }}
-              disabled={!nextPage}
-            >NEXT
-            </button>
+            />
           </div>
           <RadioButtonGroup
             className="category-radios"
